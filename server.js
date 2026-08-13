@@ -12,10 +12,13 @@ const drawerRoutes = require("./routes/drawer");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["POST", "PUT", "GET", "DELETE", "PATCH"],
+  }),
+);
 app.use(express.json());
-
-// Connect to MongoDB
 
 // Routes
 app.use("/api/products", productRoutes);
